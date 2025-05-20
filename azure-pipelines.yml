@@ -35,6 +35,8 @@ steps:
     apisecret: '$(APISECRET)'
     reportName: 'Sample'
     testname: 'sample'
+    updateMainTestFile: true
+    inputstartfile: 'login_test.jmx'
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Test"
   condition: false  # This disables the task
