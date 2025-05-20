@@ -14,15 +14,16 @@ steps:
 
 - task: Blaze-Runner.Blaze-Runner.Blazemeter-Test.BlazeMeter Integration@2
   displayName: 'BlazeMeter Integration'
+  condition: false  # This disables the task
   inputs:
     selectTask: createPerformaceTest
     reportName: MyTest
     updateMainTestFile: true
-    inputstartfile: 'login_test.jmx'
+    inputstartfile: 'dbank-login.jmx'
     testname: testname
     buildStatus: false
 - task: BlazeMeter Integration@2
-  condition: false  # This disables the task
+  condition: true  # This disables the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
@@ -30,11 +31,11 @@ steps:
     reportName: 'UploadedJMX'
     selectuploadforPerformanceTest: 'uploadfile'
     updateMainTestFile: true
-    inputstartfile: 'login_test.jmx'
+    inputstartfile: 'dbank-login.jmx'
     testname: 'pipeline-test'
-    totalusers: 5
-    duration: 2
-    rampup: 0
+    totalusers: 
+    duration: 
+    rampup: 
     showtaillog: true
 
 - task: BlazeMeter Integration@2
@@ -46,7 +47,7 @@ steps:
     reportName: 'Sample'
     testname: 'sample'
     updateMainTestFile: true
-    inputstartfile: 'login_test.jmx'
+    inputstartfile: 'dbank-login.jmx'
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Test"
   condition: false  # This disables the task
