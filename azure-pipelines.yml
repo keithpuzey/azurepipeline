@@ -23,7 +23,7 @@ steps:
     testname: testname
     buildStatus: false
 - task: BlazeMeter Integration@2
-  condition: true  # This enables  the task
+  condition: false  # This enables  the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
@@ -37,7 +37,18 @@ steps:
     duration: '$(Perf_Duration)'
     rampup: 0
     showtaillog: true
-
+- task: BlazeMeter Integration@2
+  condition: true  # This enables  the task
+  inputs:
+    selectTask: 'createPerformaceTest'
+    apikey: '$(APIKEY)'
+    apisecret: '$(APISECRET)'
+    reportName: 'UploadedJMX'
+    selectuploadforPerformanceTest: 'uploadfile'
+    updateMainTestFile: true
+    inputstartfile: 'dbank-login.jmx'
+    testname: 'pipeline-test-5-jmx'
+    showtaillog: true
 - task: BlazeMeter Integration@2
   condition: false  # This disables the task
   inputs:
