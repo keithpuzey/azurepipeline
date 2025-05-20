@@ -23,7 +23,7 @@ steps:
     testname: testname
     buildStatus: false
 - task: BlazeMeter Integration@2
-  condition: true  # This disables the task
+  condition: true  # This enables  the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
