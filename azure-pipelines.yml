@@ -21,8 +21,8 @@ steps:
     updateMainTestFile: true
     inputstartfile: 'login_test.jmx'
     testname: 'pipeline-test'
-    totalusers: 0
-    duration: 0
+    totalusers: 5
+    duration: 2
     rampup: 0
     showtaillog: true
 
