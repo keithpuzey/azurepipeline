@@ -11,6 +11,16 @@ steps:
 - script: |
     php -v
   displayName: 'Verify PHP version'
+
+- task: Blaze-Runner.Blaze-Runner.Blazemeter-Test.BlazeMeter Integration@2
+  displayName: 'BlazeMeter Integration'
+  inputs:
+    selectTask: createPerformaceTest
+    reportName: MyTest
+    updateMainTestFile: true
+    inputstartfile: 'login_test.jmx'
+    testname: testname
+    buildStatus: false
 - task: BlazeMeter Integration@2
   condition: false  # This disables the task
   inputs:
@@ -28,7 +38,7 @@ steps:
     showtaillog: true
 
 - task: BlazeMeter Integration@2
-  condition: true  # This disables the task
+  condition: false  # This disables the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
