@@ -12,6 +12,7 @@ steps:
     php -v
   displayName: 'Verify PHP version'
 - task: BlazeMeter Integration@2
+  condition: false  # This disables the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
@@ -27,7 +28,7 @@ steps:
     showtaillog: true
 
 - task: BlazeMeter Integration@2
-  condition: false  # This disables the task
+  condition: true  # This disables the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
