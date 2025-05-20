@@ -32,7 +32,7 @@ steps:
     selectuploadforPerformanceTest: 'uploadfile'
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
-    testname: 'pipeline-test'
+    testname: 'pipeline-test-5-jmx'
     totalusers: 0
     duration: 0
     rampup: 0
