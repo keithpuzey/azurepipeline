@@ -33,9 +33,9 @@ steps:
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
     testname: 'pipeline-test'
-    totalusers: 
-    duration: 
-    rampup: 
+    totalusers: 0
+    duration: 0
+    rampup: 0
     showtaillog: true
 
 - task: BlazeMeter Integration@2
