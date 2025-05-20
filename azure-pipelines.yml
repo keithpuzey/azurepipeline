@@ -33,8 +33,8 @@ steps:
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
     testname: 'pipeline-test-5-jmx'
-    totalusers: 0
-    duration: 0
+    totalusers: '$(VUsers)'
+    duration: '$(Perf_Duration)'
     rampup: 0
     showtaillog: true
 
