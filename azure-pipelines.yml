@@ -30,7 +30,7 @@ steps:
       Write-Host "##vso[task.setvariable variable=TestDuration]$($params.TestDuration)"
       Write-Host "##vso[task.setvariable variable=RampUpTime]$($params.RampUpTime)"
 - script: |
-    echo "Users: $(VUser)"
+    echo "Users: $(VUsers)"
     echo "Duration: $(TestDuration)"
     echo "Ramp: $(RampUpTime)"
   displayName: 'Use test parameters'
