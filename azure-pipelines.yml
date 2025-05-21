@@ -11,6 +11,19 @@ steps:
 - script: |
     php -v
   displayName: 'Verify PHP version'
+- task: PowerShell@2
+  name: ReadParams
+  inputs:
+    targetType: 'inline'
+    script: |
+      $paramsFile = "blz_load_config.json"
+      Write-Host "Reading params from $paramsFile"
+
+      $params = Get-Content $paramsFile | ConvertFrom-Json
+
+      Write-Host "##vso[task.setvariable variable=VUser]$($params.VUser)"
+      Write-Host "##vso[task.setvariable variable=TestDuration]$($params.TestDuration)"
+      Write-Host "##vso[task.setvariable variable=RampUpTime]$($params.RampUpTime)"
 
 - task: Blaze-Runner.Blaze-Runner.Blazemeter-Test.BlazeMeter Integration@2
   displayName: 'BlazeMeter Integration'
@@ -23,21 +36,6 @@ steps:
     testname: testname
     buildStatus: false
 - task: BlazeMeter Integration@2
-  condition: false  # This enables  the task
-  inputs:
-    selectTask: 'createPerformaceTest'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'UploadedJMX'
-    selectuploadforPerformanceTest: 'uploadfile'
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
-    testname: 'pipeline-test-5-jmx'
-    totalusers: '$(VUsers)'
-    duration: '$(Perf_Duration)'
-    rampup: 0
-    showtaillog: true
-- task: BlazeMeter Integration@2
   condition: true  # This enables  the task
   inputs:
     selectTask: 'createPerformaceTest'
@@ -48,7 +46,27 @@ steps:
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
     testname: 'pipeline-test-5-jmx'
+    totalusers: '$(VUser)'
+    duration: '$(TestDuration)'
+    rampup: $(RampUpTime)
     showtaillog: true
+    buildStatus: false
+
+
+- task: BlazeMeter Integration@2
+  condition: false  # This enables  the task
+  inputs:
+    selectTask: 'createPerformaceTest'
+    apikey: '$(APIKEY)'
+    apisecret: '$(APISECRET)'
+    reportName: 'UploadedJMX'
+    selectuploadforPerformanceTest: 'uploadfile'
+    updateMainTestFile: true
+    inputstartfile: 'dbank-login.jmx'
+    testname: 'pipeline-test-5-jmx'
+    showtaillog: true
+    buildStatus: false
+
 - task: BlazeMeter Integration@2
   condition: false  # This disables the task
   inputs:
