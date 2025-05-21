@@ -51,11 +51,11 @@ steps:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
-    reportName: 'UploadedJMX'
+    reportName: 'Azure Release $(Build.BuildId)'
     selectuploadforPerformanceTest: 'uploadfile'
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
-    testname: 'pipeline-test-5-jmx'
+    testname: 'pipeline-test-jmx'
     totalusers: '$(VUsers)'
     duration: '$(TestDuration)'
     rampup: $(RampUpTime)
