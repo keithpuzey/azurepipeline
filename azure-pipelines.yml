@@ -46,7 +46,7 @@ steps:
     testname: testname
     buildStatus: false
 - task: BlazeMeter Integration@2
-  condition: true  # This enables  the task
+  condition: false  # This enables  the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
@@ -63,6 +63,19 @@ steps:
     buildStatus: false
     projectID: 2066897
 
+- task: BlazeMeter Integration@2
+  inputs:
+    selectTask: 'runExistingTest'
+    testurl: 'https://a.blazemeter.com/app/#/accounts/352831/workspaces/1787337/projects/2066897/tests/14772546/edit'
+    apikey: '$(APIKEY)'
+    apisecret: '$(APISECRET)'
+    reportName: 'runtest'
+    selectUploadfile: 'No'
+    showtaillog: true
+    totalusers: '$(VUsers)'
+    duration: '$(TestDuration)'
+    rampup: $(RampUpTime)
+    buildStatus: false
 
 - task: BlazeMeter Integration@2
   condition: false  # This enables  the task
