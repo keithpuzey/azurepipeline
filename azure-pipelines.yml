@@ -112,18 +112,7 @@ steps:
     apisecret: '$(APISECRET)'
     selectUploadfile: 'No'
     buildStatus: false
+    reportName: 'Azure Release $(Build.BuildId)'
+    updateMainTestFile: true
+    inputstartfile: 'dbank-login.jmx'
 
-- task: BlazeMeter Integration@2
-  inputs:
-    selectTask: 'createPerformaceTest'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'Sample Azure'
-    selectuploadforPerformanceTest: 'uploadjson'
-    UploadJsonFile: 'bzm_config.json'
-    testname: 'Sample from Config'
-    projectID: '2066897'
-    totalusers: '$(VUsers)'
-    duration: '$(TestDuration)'
-    rampup: $(RampUpTime)
-    buildStatus: false
