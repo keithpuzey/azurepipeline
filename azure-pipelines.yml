@@ -104,11 +104,25 @@ steps:
     inputstartfile: 'dbank-login.jmx'
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Test"
-  condition: true  # This disables the task
+  condition: false  # This disables the task
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
     selectUploadfile: 'No'
+    buildStatus: false
+
+- task: BlazeMeter Integration@2
+  inputs:
+    selectTask: 'createPerformaceTest'
+    apikey: '$(APIKEY)'
+    apisecret: '$(APISECRET)'
+    reportName: 'Sample Azure'
+    selectuploadforPerformanceTest: 'uploadjson'
+    UploadJsonFile: 'bzm_config.json'
+    testname: 'Sample from Config'
+    projectID: '2066897'
+    totalusers: '8'
+    duration: '8'
     buildStatus: false
