@@ -1,0 +1,29 @@
+{
+  "executions": [
+    {
+      "concurrency": 7,
+      "holdFor": "6m",
+      "rampUp": "1m",
+      "steps": 0
+    }
+  ],
+  "configuration": {
+    "plugins": {
+      "thresholds": {
+        "thresholds": [
+          {
+            "field": "errors.percent",
+            "label": "ALL",
+            "op": "gt",
+            "stopTestOnViolation": true,
+            "value": "0",
+            "offsetPercentage": "0.0",
+            "isEmpty": false,
+            "ignoreRampup": false,
+            "slidingWindow": true
+          }
+        ]
+      }
+    }
+  }
+}
