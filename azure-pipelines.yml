@@ -123,6 +123,7 @@ steps:
     UploadJsonFile: 'bzm_config.json'
     testname: 'Sample from Config'
     projectID: '2066897'
-    totalusers: '8'
-    duration: '8'
+    totalusers: '$(VUsers)'
+    duration: '$(TestDuration)'
+    rampup: $(RampUpTime)
     buildStatus: false
