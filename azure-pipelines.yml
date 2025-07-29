@@ -126,7 +126,7 @@ steps:
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release $(Build.BuildId)'
-    selectUploadfile: 'No'
+    selectUploadfile: 'Yes'
     totalusers: '$($params.VUsers)'
     duration: '$($params.TestDuration)'
     rampup: '$($params.RampUpTime)'
