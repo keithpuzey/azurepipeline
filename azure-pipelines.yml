@@ -24,8 +24,8 @@ steps:
       Write-Host "Loaded values:"
       Write-Host "VUsers = $($params.VUsers)"
       Write-Host "TestDuration = $($params.TestDuration)"
-      Write-Host "RampUpTime = $($params.RampUpTime)"
-
+      Write-Host "RampUpTime = $($params.RampUpTime)""
+  
       Write-Host "##vso[task.setvariable variable=VUsers]$($params.VUsers)"
       Write-Host "##vso[task.setvariable variable=TestDuration]$($params.TestDuration)"
       Write-Host "##vso[task.setvariable variable=RampUpTime]$($params.RampUpTime)"
@@ -104,7 +104,7 @@ steps:
     inputstartfile: 'dbank-login.jmx'
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Test"
-  condition: true  # This disables the task
+  condition: false  # This disables the task
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
@@ -116,3 +116,19 @@ steps:
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
 
+
+- task: BlazeMeter Integration@2
+  displayName: "BlazeMeter Load Test"
+  condition: true  # This disables the task
+  inputs:
+    selectTask: 'runExistingTest'
+    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
+    apikey: '$(APIKEY)'
+    apisecret: '$(APISECRET)'
+    reportName: 'Azure Release $(Build.BuildId)'
+    selectUploadfile: 'No'
+    totalusers: '$($params.VUsers)'
+    duration: '$($params.TestDuration)'
+    rampup: '$($params.RampUpTime)'
+    concurrencyControlEnabled: true
+    buildStatus: false
