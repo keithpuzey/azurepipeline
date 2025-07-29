@@ -11,29 +11,6 @@ steps:
 - script: |
     php -v
   displayName: 'Verify PHP version'
-- task: PowerShell@2
-  name: ReadParams
-  inputs:
-    targetType: 'inline'
-    script: |
-      $paramsFile = "$(Build.SourcesDirectory)\blz_load_config.json"
-      Write-Host "Reading params from $paramsFile"
-
-      $params = Get-Content $paramsFile | ConvertFrom-Json
-
-      Write-Host "Loaded values:"
-      Write-Host "VUsers = $($params.VUsers)"
-      Write-Host "TestDuration = $($params.TestDuration)"
-      Write-Host "RampUpTime = $($params.RampUpTime)""
-  
-      Write-Host "##vso[task.setvariable variable=VUsers]$($params.VUsers)"
-      Write-Host "##vso[task.setvariable variable=TestDuration]$($params.TestDuration)"
-      Write-Host "##vso[task.setvariable variable=RampUpTime]$($params.RampUpTime)"
-- script: |
-    echo "Users: $(VUsers)"
-    echo "Duration: $(TestDuration)"
-    echo "Ramp: $(RampUpTime)"
-  displayName: 'Use test parameters'
 
 - task: Blaze-Runner.Blaze-Runner.Blazemeter-Test.BlazeMeter Integration@2
   displayName: 'BlazeMeter Integration'
