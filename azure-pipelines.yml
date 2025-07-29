@@ -12,16 +12,6 @@ steps:
     php -v
   displayName: 'Verify PHP version'
 
-- task: Blaze-Runner.Blaze-Runner.Blazemeter-Test.BlazeMeter Integration@2
-  displayName: 'BlazeMeter Integration'
-  condition: false  # This disables the task
-  inputs:
-    selectTask: createPerformaceTest
-    reportName: MyTest
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
-    testname: testname
-    buildStatus: false
 - task: BlazeMeter Integration@2
   condition: false  # This enables  the task
   inputs:
@@ -40,59 +30,6 @@ steps:
     buildStatus: false
     projectID: 2066897
 
-- task: BlazeMeter Integration@2
-  condition: false  # This enables  the task
-  inputs:
-    selectTask: 'runExistingTest'
-    testurl: 'https://a.blazemeter.com/app/#/accounts/352831/workspaces/1787337/projects/2066897/tests/14772546/edit'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'runtest'
-    selectUploadfile: 'No'
-    showtaillog: true
-    totalusers: '$(VUsers)'
-    duration: '$(TestDuration)'
-    rampup: $(RampUpTime)
-    buildStatus: false
-
-- task: BlazeMeter Integration@2
-  condition: false  # This enables  the task
-  inputs:
-    selectTask: 'createPerformaceTest'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'UploadedJMX'
-    selectuploadforPerformanceTest: 'uploadfile'
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
-    testname: 'pipeline-test-5-jmx'
-    showtaillog: true
-    buildStatus: false
-
-- task: BlazeMeter Integration@2
-  condition: false  # This disables the task
-  inputs:
-    selectTask: 'createPerformaceTest'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'Sample'
-    testname: 'sample'
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
-- task: BlazeMeter Integration@2
-  displayName: "BlazeMeter Test"
-  condition: false  # This disables the task
-  inputs:
-    selectTask: 'runExistingTest'
-    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    selectUploadfile: 'No'
-    buildStatus: false
-    reportName: 'Azure Release $(Build.BuildId)'
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
-
 
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Load Test"
@@ -109,3 +46,5 @@ steps:
     rampup: '$(RampUpTime)'
     concurrencyControlEnabled: true
     buildStatus: false
+    updateMainTestFile: true
+    inputstartfile: 'dbank-login.jmx'
