@@ -51,9 +51,10 @@ steps:
 
 - task: BlazeMeter Integration@2
   condition: true  # This disables the task
+  displayName: "BlazeMeter Load Test July 2025"
   inputs:
     selectTask: 'runExistingTest'
-    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
+    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821'
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release'
