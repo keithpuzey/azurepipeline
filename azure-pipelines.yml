@@ -33,7 +33,7 @@ steps:
 
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Load Test"
-  condition: false  # This disables the task
+  condition: true  # This disables the task
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
@@ -50,7 +50,7 @@ steps:
     inputstartfile: 'dbank-login.jmx'
 
 - task: BlazeMeter Integration@2
-  condition: true  # This disables the task
+  condition: false  # This disables the task
   displayName: "BlazeMeter Load Test July 2025"
   inputs:
     selectTask: 'runExistingTest'
