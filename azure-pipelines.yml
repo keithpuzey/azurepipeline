@@ -41,8 +41,8 @@ steps:
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release $(Build.BuildId)'
     selectUploadfile: 'Yes'
-    totalusers: '25'
-    duration: '8'
+    totalusers: '$(VUsers'
+    duration: '$(Perf_Duration)'
     rampup: '2'
     concurrencyControlEnabled: true
     buildStatus: false
