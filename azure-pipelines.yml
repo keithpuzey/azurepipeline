@@ -33,7 +33,7 @@ steps:
 
 - task: BlazeMeter Integration@2.9.5
   displayName: "BlazeMeter Load Test"
-  condition: true  # This disables the task
+  condition: false  # This disables the task
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
@@ -66,3 +66,15 @@ steps:
     rampup: '3'
     concurrencyControlEnabled: true
     buildStatus: false
+
+- task: BlazeMeter Integration@2
+  inputs:
+    selectTask: 'runExistingTest'
+    testurl: 'https://a.blazemeter.com/app/#/accounts/352831/workspaces/1787337/projects/2066897/tests/14780821/edit'
+    apikey: '$(APIKEY)'
+    apisecret: '$(APISECRET)'
+    reportName: 'test'
+    selectUploadfile: 'No'
+    totalusers: '55'
+    duration: '55'
+    rampup: '3'
