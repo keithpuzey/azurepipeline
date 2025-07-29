@@ -58,7 +58,7 @@ steps:
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release'
-    selectUploadfile: 'uploadfile'
+    #  selectUploadfile: 'uploadfile'
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
     totalusers: '12'
