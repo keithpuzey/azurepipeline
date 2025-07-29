@@ -41,10 +41,11 @@ steps:
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release $(Build.BuildId)'
     selectUploadfile: 'Yes'
-    totalusers: '$(VUsers)'
-    duration: '$(Perf_Duration)'
-    rampup: '$(RampUpTime)'
+    totalusers: 25
+    duration: 8
+    rampup: 2
     concurrencyControlEnabled: true
     buildStatus: false
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
+
