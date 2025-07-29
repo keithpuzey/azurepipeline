@@ -64,7 +64,7 @@ steps:
     totalusers: '12'
     duration: '4'
     rampup: '2'
-    concurrencyControlEnabled: true
-    buildStatus: false
+    # concurrencyControlEnabled: true
+    # buildStatus: false
 
 
