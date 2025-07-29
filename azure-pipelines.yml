@@ -59,12 +59,10 @@ steps:
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release'
     #  selectUploadfile: 'uploadfile'
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
+    # updateMainTestFile: true
+    # inputstartfile: 'dbank-login.jmx'
     totalusers: '12'
     duration: '4'
     rampup: '2'
-    # concurrencyControlEnabled: true
-    # buildStatus: false
-
-
+    concurrencyControlEnabled: true
+    buildStatus: false
