@@ -1,5 +1,5 @@
 {
-  "VUsers": "10",
-  "TestDuration": "5",
+  "VUsers": "20",
+  "TestDuration": "3",
   "RampUpTime": "1"
 }
