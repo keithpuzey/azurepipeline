@@ -57,7 +57,7 @@ steps:
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821'
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
-    reportName: 'Azure Release'
+    reportName: 'Azure Release  $(Build.BuildId)'
     selectUploadfile: 'uploadfile'
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
