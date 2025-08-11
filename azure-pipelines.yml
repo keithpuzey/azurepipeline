@@ -41,7 +41,7 @@ steps:
     apisecret: '$(APISECRET)'
     reportName: 'Azure Release $(Build.BuildId)'
     privateLocation: true
-    locations: 'home-lab'
+    locations: 'harbor-66b5f770eb9a655f950d05d8'
     selectUploadfile: 'uploadfile'
     totalusers: '$(VUsers)'
     duration: '$(Perf_Duration)'
