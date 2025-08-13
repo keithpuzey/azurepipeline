@@ -85,5 +85,3 @@ steps:
     locations: 'home-lab'
     showtaillog: true
     buildStatus: false
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
