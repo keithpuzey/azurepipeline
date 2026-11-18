@@ -11,7 +11,7 @@ steps:
 
 
 - task: BlazeMeter Integration@2
-  condition: true  # This enables  the task
+  condition: false  # This enables  the task
   inputs:
     selectTask: 'createPerformaceTest'
     apikey: '$(APIKEY)'
@@ -31,8 +31,8 @@ steps:
 
 
 - task: BlazeMeter Integration@2
-  condition: false  # This disables the task
-  displayName: "BlazeMeter Load Test November 2026"
+  condition: true  # This disables the task
+  displayName: "BlazeMeter Load Test November 2026 Build $(Build.BuildId)"
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821'
