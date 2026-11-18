@@ -33,7 +33,7 @@ steps:
 
 - task: BlazeMeter Integration@2
   displayName: "BlazeMeter Load Test"
-  condition: true  # This disables the task
+  condition: false  # This disables the task
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
@@ -54,8 +54,8 @@ steps:
 
 
 - task: BlazeMeter Integration@2
-  condition: false  # This disables the task
-  displayName: "BlazeMeter Load Test July 2025"
+  condition: true  # This disables the task
+  displayName: "BlazeMeter Load Test November 2026"
   inputs:
     selectTask: 'runExistingTest'
     testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821'
@@ -72,16 +72,3 @@ steps:
     buildStatus: false
 
 
-- task: BlazeMeter Integration@2
-  displayName: "BlazeMeter Load Test On Premise"
-  condition: false  # This disables the task
-  inputs:
-    selectTask: 'runExistingTest'
-    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'Azure Release $(Build.BuildId)'
-    privateLocation: true
-    locations: 'home-lab'
-    showtaillog: true
-    buildStatus: false
