@@ -8,9 +8,7 @@ variables:
   phpVersion: 8.1
 
 steps:
-- script: |
-    php -v
-  displayName: 'Verify PHP version'
+
 
 - task: BlazeMeter Integration@2
   condition: true  # This enables  the task
@@ -31,30 +29,9 @@ steps:
     projectID: 2066897
 
 
+
 - task: BlazeMeter Integration@2
-  displayName: "BlazeMeter Load Test"
   condition: false  # This disables the task
-  inputs:
-    selectTask: 'runExistingTest'
-    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821/edit'
-    apikey: '$(APIKEY)'
-    apisecret: '$(APISECRET)'
-    reportName: 'Azure Release $(Build.BuildId)'
-    privateLocation: true
-    locations: 'home-lab'
-    selectUploadfile: 'uploadfile'
-    totalusers: '$(VUsers)'
-    duration: '$(Perf_Duration)'
-    rampup: '2'
-    concurrencyControlEnabled: true
-    showtaillog: true
-    buildStatus: false
-    updateMainTestFile: true
-    inputstartfile: 'dbank-login.jmx'
-
-
-- task: BlazeMeter Integration@2
-  condition: true  # This disables the task
   displayName: "BlazeMeter Load Test November 2026"
   inputs:
     selectTask: 'runExistingTest'
