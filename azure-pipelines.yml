@@ -35,15 +35,15 @@ steps:
   displayName: "BlazeMeter Load Test November 2026 Build $(Build.BuildId)"
   inputs:
     selectTask: 'runExistingTest'
-    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/14780821'
+    testurl: 'https://a.blazemeter.com/app/#/accounts/$(AccountID)/workspaces/$(WorkSpaceID)/projects/2066897/tests/16071946'
     apikey: '$(APIKEY)'
     apisecret: '$(APISECRET)'
-    reportName: 'Azure Release'
+    reportName: 'Azure Release $(Build.BuildId)'
     selectUploadfile: 'uploadfile'
     updateMainTestFile: true
     inputstartfile: 'dbank-login.jmx'
-    totalusers: '13'
-    duration: '4'
+    totalusers: '150'
+    duration: '10'
     rampup: '2'
     concurrencyControlEnabled: true
     buildStatus: false
